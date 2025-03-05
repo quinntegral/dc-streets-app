@@ -5,8 +5,8 @@ import urllib.parse
 MAPBOX_ACCESS_TOKEN = "pk.eyJ1IjoicXVpbm50ZWdyYWwiLCJhIjoiY20ydzg2YmVsMDQyajJqcHdtMWFpeDkxZSJ9.aGne6BrJD-xknl274LKPVQ"
 MAPBOX_GEOCODE_URL = "https://api.mapbox.com/search/geocode/v6/forward"
 
-input_file = "src/data/dc-high-schools.csv"
-output_file = "src/data/dc-high-schools-new.csv"
+input_file = "src/data/dc-elem-schools.csv"
+output_file = "src/data/dc-elem-schools-gps-coords.csv"
 
 def get_coordinates(address):
     #encoded_address = urllib.parse.quote(address)
@@ -33,7 +33,8 @@ def process_csv():
         writer.writerow(["School Name", "Address", "Latitude", "Longitude"])
         
         for row in reader:
-            school_name, address = row
+            #school_name, address,  = row # for high schools csv
+            school_name, address, school_zone = row # for elem schools csv
             print(f"getting {address}\n")
             lat, lon = get_coordinates(address)
             print(f"{school_name}: {lat}, {lon}")

@@ -13,6 +13,10 @@
 
 ${colorLegend}
 
+```js
+const  streetToggle = view(Inputs.toggle({label: "Toggle street view", value: true}));
+```
+
 <div style="font-size: small; text-align: right; font-style: italic;"><a href="https://www.datadrivenstreets.org/">source link</a></div>
 
 # priority adjustment
@@ -42,9 +46,9 @@ import deck from "npm:deck.gl";
 import maplibregl from "npm:maplibre-gl";
 const {DeckGL, MapView, MapController, GeoJsonLayer, ScatterplotLayer, AmbientLight, LightingEffect, PointLight} = deck;
 
-const elemZonesJson = await FileAttachment("/data/dc-elem-school-zones.geojson").json();
-const msZonesJson = await FileAttachment("/data/dc-middle-school-zones.geojson").json();
-const hsZonesJson = await FileAttachment("/data/dc-high-school-zones.geojson").json();
+const elemZonesJson = await FileAttachment("/data/elem-school-zones.geojson").json();
+const msZonesJson = await FileAttachment("/data/middle-school-zones.geojson").json();
+const hsZonesJson = await FileAttachment("/data/high-school-zones.geojson").json();
 const streetJson = await FileAttachment("/data/final-fixed-streets.geojson").json(); // note this
 const crashValues = streetJson.features.map(f => f.properties?.crash_count_2022 || 0);
 
@@ -170,7 +174,7 @@ deckInstance.setProps({
     new GeoJsonLayer({
     id: 'streetLayer',
     data: streetJson,
-    visible: true, // add a toggle???? maybe??
+    visible: streetToggle === true, // add a toggle???? maybe??
     getLineWidth: 3,
     lineWidthUnits: "pixels",
     lineJointRounded: true,
@@ -190,7 +194,7 @@ deckInstance.setProps({
 
 ```
 
-© [CARTO](https://carto.com/platform), © [OpenStreetMap](https://www.openstreetmap.org/copyright) contributors
+Base map by © [CARTO](https://carto.com/platform), © [OpenStreetMap](https://www.openstreetmap.org/copyright) contributors
 
 ## header example
 

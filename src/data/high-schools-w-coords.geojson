@@ -1,0 +1,16 @@
+{
+"type": "FeatureCollection",
+"name": "high-schools-w-coords",
+"features": [
+{ "type": "Feature", "properties": { "School Name": "﻿Anacostia High School", "Address": "1601 16th St SE, Washington, DC 20020", "Latitude": 38.87009, "Longitude": -76.98308 }, "geometry": { "type": "Point", "coordinates": [ -76.98308, 38.87009 ] } },
+{ "type": "Feature", "properties": { "School Name": "Ballou High School", "Address": "3401 4th St SE, Washington, DC 20032", "Latitude": 38.83852, "Longitude": -77.00136 }, "geometry": { "type": "Point", "coordinates": [ -77.00136, 38.83852 ] } },
+{ "type": "Feature", "properties": { "School Name": "Calvin Coolidge High School", "Address": "6315 5th St NW, Washington, DC 20011", "Latitude": 38.967289, "Longitude": -77.019543 }, "geometry": { "type": "Point", "coordinates": [ -77.019543, 38.967289 ] } },
+{ "type": "Feature", "properties": { "School Name": "Cardozo Education Campus", "Address": "1200 Clifton St NW, Washington, DC 20009", "Latitude": 38.92218, "Longitude": -77.028471 }, "geometry": { "type": "Point", "coordinates": [ -77.028471, 38.92218 ] } },
+{ "type": "Feature", "properties": { "School Name": "Dunbar High School", "Address": "101 N St NW, Washington, DC 20001", "Latitude": 38.90763, "Longitude": -77.01269 }, "geometry": { "type": "Point", "coordinates": [ -77.01269, 38.90763 ] } },
+{ "type": "Feature", "properties": { "School Name": "Eastern High School", "Address": "1700 East Capitol St NE, Washington, DC 20002", "Latitude": 38.89041, "Longitude": -76.979688 }, "geometry": { "type": "Point", "coordinates": [ -76.979688, 38.89041 ] } },
+{ "type": "Feature", "properties": { "School Name": "H.D. Woodson Senior High School", "Address": "540 55th St NE, Washington, DC 20019", "Latitude": 38.896939, "Longitude": -76.922506 }, "geometry": { "type": "Point", "coordinates": [ -76.922506, 38.896939 ] } },
+{ "type": "Feature", "properties": { "School Name": "MacArthur Blvd High School", "Address": "4530 MacArthur Blvd NW, Washington, DC 20007", "Latitude": 38.90777, "Longitude": -77.08617 }, "geometry": { "type": "Point", "coordinates": [ -77.08617, 38.90777 ] } },
+{ "type": "Feature", "properties": { "School Name": "Theodore Roosevelt High School", "Address": "4301 13th St NW, Washington, DC 20011", "Latitude": 38.943127, "Longitude": -77.028551 }, "geometry": { "type": "Point", "coordinates": [ -77.028551, 38.943127 ] } },
+{ "type": "Feature", "properties": { "School Name": "Jackson-Reed High School", "Address": "3950 Chesapeake St NW, Washington, DC 20016", "Latitude": 38.95016, "Longitude": -77.07778 }, "geometry": { "type": "Point", "coordinates": [ -77.07778, 38.95016 ] } }
+]
+}
