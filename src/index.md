@@ -46,20 +46,24 @@ import deck from "npm:deck.gl";
 import maplibregl from "npm:maplibre-gl";
 const {DeckGL, MapView, MapController, GeoJsonLayer, ScatterplotLayer, AmbientLight, LightingEffect, PointLight} = deck;
 
-const elemZonesJson = await FileAttachment("/data/elem-school-zones.geojson").json();
-const msZonesJson = await FileAttachment("/data/middle-school-zones.geojson").json();
-const hsZonesJson = await FileAttachment("/data/high-school-zones.geojson").json();
-const streetJson = await FileAttachment("/data/final-fixed-streets.geojson").json(); // note this
-const crashValues = streetJson.features.map(f => f.properties?.crash_count_2022 || 0);
+const elemZonesJson = await FileAttachment("/data/map-assets/school-zones/elem-school-zones.geojson").json();
+const msZonesJson = await FileAttachment("/data/map-assets/school-zones/middle-school-zones.geojson").json();
+const hsZonesJson = await FileAttachment("/data/map-assets/school-zones/high-school-zones.geojson").json();
+// also add school gps coordinates here
+const streetJson = await FileAttachment("/data/map-assets/streets.geojson").json(); // note this
+const censusBlocksJson = await FileAttachment("/data/map-assets/census-blocks.geojson").json();
+const crashValues = streetJson.features.map(f => f.properties?.predicted_crashes_2022 || 0);
 
 // color scale & legend
 
 const COLOR_SCALE = d3.scaleSequential(d3.interpolateMagma)
   .domain([Math.max(...crashValues), Math.min(...crashValues)]);
 
+const linearScale = d3.scaleLinear().domain([0, 5]).range(d3.extent(crashValues));
+
 const colorRange = d3.range(6).map(i => {
-  const value = +d3.scaleLinear().range(d3.extent(crashValues))(i);
-  return {x: value, color: COLOR_SCALE(value)};
+  const value = linearScale(i);
+  return { x: value, color: COLOR_SCALE(value) };
 });
 
 const colorLegend = Plot.plot({
