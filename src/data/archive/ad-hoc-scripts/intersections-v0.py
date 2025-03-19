@@ -22,7 +22,7 @@ school_levels = {
                           columns=["ID", "Latitude", "Longtiude"]).to_crs(3857)
 }
 
-# don't need street geometry sicne we have ID
+# don't need street geometry since we have ID
 streets_gdf = gpd.read_file("src/data/calculations/streets.parquet",
                             columns=["ID","predicted_crashes_2022"]).to_crs(3857)
 
@@ -53,7 +53,7 @@ for level_name, school_gdf in school_levels.items():
     print(f"Saved: {output_file} ({duration:.2f} seconds)")
 
     # record timing results
-    timing_results.append(f"{level_name}: {duration:.2f} seconds")
+    code_timing_results.append(f"{level_name}: {duration:.2f} seconds")
 
 # save timing results to file
 timing_file = f"{results_dir}/timing_results.txt"
