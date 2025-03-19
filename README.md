@@ -1,22 +1,9 @@
 # DC Streets App
 
-This is an [Observable Framework](https://observablehq.com/framework/) app. To install the required dependencies, run:
+## Observable Information
+The front-end of this project is an [Observable Framework](https://observablehq.com/framework/) app. To install the required dependencies, run ```npm install```. Then, to start the local preview server, run: ```npm run dev```.
 
-```
-npm install
-```
-
-Then, to start the local preview server, run:
-
-```
-npm run dev
-```
-
-Then visit <http://localhost:3000> to preview your app.
-
-For more, see <https://observablehq.com/framework/getting-started>.
-
-## Project structure
+Then visit <http://localhost:3000> to preview your app. For more, see <https://observablehq.com/framework/getting-started>.
 
 A typical Framework project looks like this:
 
@@ -37,16 +24,6 @@ A typical Framework project looks like this:
 └─ README.md
 ```
 
-**`src`** - This is the “source root” — where your source files live. Pages go here. Each page is a Markdown file. Observable Framework uses [file-based routing](https://observablehq.com/framework/project-structure#routing), which means that the name of the file controls where the page is served. You can create as many pages as you like. Use folders to organize your pages.
-
-**`src/index.md`** - This is the home page for your app. You can have as many additional pages as you’d like, but you should always have a home page, too.
-
-**`src/data`** - You can put [data loaders](https://observablehq.com/framework/data-loaders) or static data files anywhere in your source root, but we recommend putting them here.
-
-**`src/components`** - You can put shared [JavaScript modules](https://observablehq.com/framework/imports) anywhere in your source root, but we recommend putting them here. This helps you pull code out of Markdown files and into JavaScript modules, making it easier to reuse code across pages, write tests and run linters, and even share code with vanilla web applications.
-
-**`observablehq.config.js`** - This is the [app configuration](https://observablehq.com/framework/config) file, such as the pages and sections in the sidebar navigation, and the app’s title.
-
 ## Command reference
 
 | Command           | Description                                              |
@@ -57,3 +34,35 @@ A typical Framework project looks like this:
 | `npm run deploy`     | Deploy your app to Observable                            |
 | `npm run clean`      | Clear the local data loader cache                        |
 | `npm run observable` | Run commands like `observable help`                      |
+
+## Project Notes
+risk score calculation:
+* currently using nathan todd's prediction model. if time, will pivot to better model
+
+how long it takes to run intersections.py for each school level:
+* high: 339.91 seconds
+* middle: 557.20 seconds
+* elem: 3498.79 seconds*
+
+routing:
+* we took low-cost, naive approach of drawing lines btwn blocks and schools, but it would be better to use google maps API in future
+
+source list
+* https://dcps.dc.gov/page/dcps-glance-enrollment
+
+Documentation on schools included
+* we include 75 elem schools and there are 74 elementary zones
+  * D.C. marks 77 in [this list](https://enrolldcps.dc.gov/node/41). why the mismatch?
+    * citywide/no boundary schools that are not included: Dorothy I. Height, Excel Academy
+    * Peabody and Watkins are in one zone, Peabody-Watkins
+    * Other notes/discrepancies to mention:
+      * West Education Campus was renamed to John Lewis
+      * Shirley Chisholm is in a zone called Tyler; it used to be called Tyler
+      * John Francis Education Campus was renamed(?) to School Without Walls at Francis Stevens
+* we include 21 middle schools and there are 21 middle school zones
+  * Excel Academy is city-wide and not included
+  * Cardozo is not on the list of middle schools published by DC on [this site](https://enrolldcps.dc.gov/node/41), but it is a middle school and has a zone
+* 10 high schools and there are 10 high school zones
+  * un-included schools are the 6 apply-in or other speciality schools: School Without Walls HS, Phelps ACE HS, Ellington School of the Arts, Banneker HS, McKinley Tech HS, Luke C. Moore
+
+we use 2020 census blocks
