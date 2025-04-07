@@ -66,3 +66,5 @@ Documentation on schools included
   * un-included schools are the 6 apply-in or other speciality schools: School Without Walls HS, Phelps ACE HS, Ellington School of the Arts, Banneker HS, McKinley Tech HS, Luke C. Moore
 
 we use 2020 census blocks
+* note: the geographic code identifier is the only unique identifier i think, not block number on its own
+* 
